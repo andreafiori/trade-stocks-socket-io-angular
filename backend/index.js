@@ -13,9 +13,9 @@ server.listen(port, () => console.log(`The stock server is listening on port - $
 
 const io = socketIO(server, {
   cors: {
-    origin: "http://localhost:4200",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
+    origin: 'http://localhost:4200',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['my-custom-header'],
     credentials: true
   }
 });
@@ -27,9 +27,9 @@ io.on('connection', function(socket) {
   }, 5000);
 });
 
-const RandomStockObject = require("./random-stock-values");
+const RandomStockObject = require('./random-stock-values');
 function getStockValues(socket) {
-  socket.emit("appleStocks", RandomStockObject.getAppleStockValues());
-  socket.emit("googleStocks", RandomStockObject.getGoogleStockValues());
-  socket.emit("microsoftStocks", RandomStockObject.getMicrosoftStockValues());
+  socket.emit('appleStocks', RandomStockObject.getAppleStockValues());
+  socket.emit('googleStocks', RandomStockObject.getGoogleStockValues());
+  socket.emit('microsoftStocks', RandomStockObject.getMicrosoftStockValues());
 }
